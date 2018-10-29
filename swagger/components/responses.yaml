@@ -1,0 +1,13 @@
+responses:
+  NotFound:
+    description: The specified resource was not found
+    schema:
+      $ref: "#/definitions/NotFoundError"
+  BadRequest:
+    description: Bad Request. Check the parameters sent to the service
+    schema:
+      $ref: "#/definitions/Error"
+  InternalServerError:
+    description: An unexpected error has ocurred
+    schema:
+      $ref: "#/definitions/Error"

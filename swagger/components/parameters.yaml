@@ -1,0 +1,17 @@
+parameters:
+  buShortLabel:
+    name: bu
+    description: Business unit id
+    in: path
+    required: true
+    schema:
+      type: integer
+    example: boo foo:fighter for:>=354 
+  code: 
+    name: code
+    description: Cat unique identification code
+    in: path
+    required: true
+    schema:
+      type: integer
+    example: boo foo:fighter for:>=354 

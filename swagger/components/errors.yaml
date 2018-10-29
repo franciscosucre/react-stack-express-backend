@@ -1,0 +1,27 @@
+definitions:
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      status:
+        type: integer
+      message:
+        type: string
+  NotFoundError:
+    type: object
+    properties:
+      code:
+        schema:
+          type: integer
+          enum:
+            - ResourceNotFoundException
+      status:
+        schema:
+              type: integer
+              enum:
+                - 404
+      message:
+        type: string
+      traces:
+        type: string

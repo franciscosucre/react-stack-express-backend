@@ -1,0 +1,17 @@
+definitions:
+  Cat:
+    type: object
+    properties:
+      _id:
+        name: _id
+        type: ObjectId
+      name:
+        name: name
+        type: String
+      __v:
+        name: __v
+        type: String
+    example:   # <-----
+        _id: '5bd71d87f29c1e4c4dafa31c'
+        name: 'neko'
+        __v: 0

@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express'),
+    router = express.Router(),
+    catRouter = require('./cats'),
+    {
+        name,
+        version,
+    } = require('../package');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res, next) => {
+    res.status(200).json({
+        name,
+        version
+    });
+    next();
 });
+router.use('/cats', catRouter);
 
 module.exports = router;
