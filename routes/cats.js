@@ -192,7 +192,7 @@ router.put("/:id", async function(req, res, next) {
 /**
  * @swagger
  * /cats/{id}:
- *   put:
+ *   patch:
  *     tags:
  *       - Cats
  *     summary: Updates partially the requested document
@@ -208,10 +208,7 @@ router.put("/:id", async function(req, res, next) {
  *       200:
  *         description: List of cats
  *         schema:
- *           type: array
- *           items:
- *               $ref: '#/definitions/Cat'
- *               
+ *           $ref: "#/definitions/User"
  *       400:
  *         schema:
  *           - $ref: '#/responses/BadRequest'
