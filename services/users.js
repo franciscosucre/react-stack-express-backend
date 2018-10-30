@@ -1,7 +1,7 @@
-const { Cat } = require("../models/cats");
+const { User } = require("../models/users");
 
 /**
- * Returns the cats that satisfy a query
+ * Returns the users that satisfy a query
  *
  * @param {Object} query: MongoDB query.
  * @param {Number} limit: Used for pagination. Defines how many documents can fit in the result set.
@@ -10,7 +10,7 @@ const { Cat } = require("../models/cats");
  * @param {Object} projection: Used for projection. Defines which fields of the objects must be returned. Useful for optimizing queries.
  */
 const list = async (query, limit, skip, sort, projection) => {
-  return await Cat.find(query, projection, {
+  return await User.find(query, projection, {
     skip,
     sort,
     limit
@@ -23,7 +23,7 @@ const list = async (query, limit, skip, sort, projection) => {
  * @param {Object} query: MongoDB query.
  */
 const count = async query => {
-  return await Cat.countDocuments(query);
+  return await User.countDocuments(query);
 };
 
 /**
@@ -31,45 +31,45 @@ const count = async query => {
  * @param {Object} document: JSON document to be stored in MongoDB
  */
 const create = async document => {
-  const cat = new Cat(document);
-  await cat.save();
-  return cat;
+  const user = new User(document);
+  await user.save();
+  return user;
 };
 
 /**
  *
- * @param {String} _id: The MongoDB Id for the requested Cat
+ * @param {String} _id: The MongoDB Id for the requested User
  * @param {Object} projection: Used for projection. Defines which fields of the objects must be returned. Useful for optimizing queries.
  */
 const getById = async (_id, projection) => {
-  return await Cat.findById(_id, projection);
+  return await User.findById(_id, projection);
 };
 
 /**
  *
- * @param {String} _id: The MongoDB Id for the requested Cat
+ * @param {Object} query: The MongoDB query object
  * @param {Object} projection: Used for projection. Defines which fields of the objects must be returned. Useful for optimizing queries.
  */
-const get = async (_id, projection) => {
-  return await Cat.findById(_id, projection);
+const get = async (query, projection) => {
+  return await User.findOne(query, projection);
 };
 
 /**
  *
- * @param {String} _id: The MongoDB Id for the requested Cat
+ * @param {String} _id: The MongoDB Id for the requested User
  * @param {Object} update: MongoDB update query
  */
 const update = async (_id, update) => {
-  return await Cat.findByIdAndUpdate(_id, update);
+  return await User.findByIdAndUpdate(_id, update);
 };
 
 /**
  *
- * @param {String} _id: The MongoDB Id for the requested Cat
+ * @param {String} _id: The MongoDB Id for the requested User
  * @param {Object} projection: Used for projection. Defines which fields of the objects must be returned. Useful for optimizing queries.
  */
 const remove = async (_id, projection) => {
-  return await Cat.findByIdAndDelete(_id, {
+  return await User.findByIdAndDelete(_id, {
     select: projection
   });
 };

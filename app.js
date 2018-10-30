@@ -6,6 +6,7 @@ const express = require('express'),
     swaggerJSDoc = require('swagger-jsdoc'),
     swaggerUi = require('swagger-ui-express'),
     ErrorHandler = require('./exceptions'),
+    passport = require('passport'),
     app = express();
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -75,6 +76,9 @@ const options = {
 };
 const swaggerSpec = swaggerJSDoc(options);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, require('./config/swagger')));
+
+/* ----------------------------- PASSPORT ----------------------------- */
+passport.use(require('./utils/passport'));
 
 /* ----------------------------- ROUTES ----------------------------- */
 app.options("/*", function (req, res, next) {

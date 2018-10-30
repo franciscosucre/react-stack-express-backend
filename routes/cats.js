@@ -135,7 +135,7 @@ router.get("/:id", async function(req, res, next) {
   try {
     const queryParams = new MongoDBQueryParams(req.query),
       { projection } = queryParams.getQueryOptions();
-    const object = await catsService.get(req.params.id, projection);
+    const object = await catsService.getById(req.params.id, projection);
     if (!object) {
       throw new ResourceNotFoundException(`The resource was not found`);
     } else {
